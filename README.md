@@ -1,7 +1,7 @@
 # chatbotApp
 Chatbot Demo App
 
-Greeto is a chatbotApp  that captures key aspects of AI with features sure as:
+ChatbotApp  captures key aspects of AI with features sure as:
 
 I. Intelligent chatting
 II. Image recognition(IMR) for upload document(for release in the beta version)
@@ -13,7 +13,7 @@ Set up:
 1. Clone the repository
 2. Run:  source chatterbotenv/bin/activate
 3. This takes you into your chatterbotenv
-4. cd into Greeto folder
+4. cd into ChatbotApp folder
 5. Run: Python manage.py runserver 0.0.0.0:8000
    Note: this can be changed via ALLOWED_HOSTS = ['*'] in the settings under uploads folder for the production environment
 6. Open the bot in the browser via 0.0.0.0:8000
