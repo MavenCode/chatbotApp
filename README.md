@@ -17,6 +17,7 @@ Set up:
 5. Run: Python manage.py runserver 0.0.0.0:8000
    Note: this can be changed via ALLOWED_HOSTS = ['*'] in the settings under uploads folder for the production environment
 6. Open the bot in the browser via 0.0.0.0:8000
+7. Once down, use 'deativate' command to exit the virtualevn
 
 
 
