@@ -1,0 +1,305 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+  <head>
+    <title> Greeto </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bouncing_dots.css' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+setTimeout(function() {
+    $('#spinner').hide();
+}, 2000);
+
+ 
+
+setTimeout(function() {
+    $('#mytext').show();
+    $('#spinner1').show();
+
+}, 2000);
+
+
+setTimeout(function() {
+    $('#mytext1').show();
+    $('#spinner1').hide();
+    $('#spinner2').show();
+}, 4000);
+
+setTimeout(function() {
+    $('#mytext2').show();
+    $('#spinner2').hide();
+
+}, 6000);
+
+setTimeout(function() {
+    $('#spinner4').show();
+}, 7000);
+
+setTimeout(function() {
+    $('#mytext4').show();
+    $('#spinner4').hide();
+
+}, 8000);
+
+// setTimeout(function() {
+//     $('#spinner3').show();
+// }, 6000);
+
+
+</script>
+
+  </head>
+  <body>
+
+    {% include 'nav.html' %}
+
+    <div class="container">
+
+
+      <div class="jumbotron mt-1">
+        <h1 class="jumbotron-heading text-xs-center">ChatBot aka Greeto</h1>
+        <p class="lead text-xs-center">
+          This is a web app that allows you to talk to ChatBot.
+        </p>
+
+        <hr class="my-2">
+
+        <div class="row">
+        <div class= "d-flex justify-content-start">
+          
+             <div   class="p-2 col-md-3">
+                <div  id= "spinner" class="spinner ">
+
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                
+                </div>
+              </div>
+
+               <div   class="p-2 col-md-4">
+                     <div class="alert alert-info" id="mytext" style="display:none;">
+                         <strong>Info!</strong> Welcome to mychatbot
+                    </div>
+
+              </div>        
+        
+        </div>
+
+
+      </div>
+
+      <div class = "row">
+
+          <div class= "d-flex justify-content-start">
+              
+                 <div   class="p-2 col-md-3">
+                    <div  id= "spinner1" class="spinner"  style="display:none;">
+
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                    
+                    </div>
+                  </div>
+
+                   <div   class="p-2 col-md-4">
+                         <div class="alert alert-info" id="mytext1" style="display:none;">
+                              Can we exchange greetings?
+                        </div>
+
+                  </div>        
+            
+            </div>
+
+    </div>
+
+     <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-md-3">
+                      <div  id= "spinner2" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+
+                
+     
+                
+                <div id= "mytext2" style="display:none;" class="p-2 col-md-4">
+
+                    <input type="text"  class="form-control js-text input-lg"
+                     placeholder="Type something to begin..." />
+                          <span class="input-group-btn">
+
+                                <button class="btn btn-primary js-say">Submit</button>
+
+                          </span>
+                </div>                                       
+                    
+          
+        </div>
+
+    </div>
+
+
+     <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner3" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+                          
+                <div id= "mytext3" style="display:none;" class="p-2 col-lg-4">
+
+                    <ul class="list-group js-chat-log">
+
+                    </ul>  
+                </div>
+
+        </div>
+
+    </div>
+
+
+
+  <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner4" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+                      
+                <div id= "mytext4" class="p-2 col-lg-4"  style="display:none;">
+                    {% block content %}
+                    {% endblock %}   
+                </div>
+
+        </div>
+
+    </div>
+       
+
+
+
+      </div>
+
+    </div>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/js.cookie.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script>
+      var chatterbotUrl = '{% url "chatterbot:chatterbot" %}';
+      var csrftoken = Cookies.get('csrftoken');
+
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+
+      var $chatlog = $('.js-chat-log');
+      var $input = $('.js-text');
+      var $sayButton = $('.js-say');
+
+      function createRow(text) {
+         
+      
+
+
+        var $row = $('<li class="list-group-item"><div class="alert alert-info"><br> </div></li>');
+
+        $row.text(text);
+        $chatlog.append($row);
+      }
+
+      function submitInput() {
+        var inputData = {
+          'text': $input.val()
+        }
+
+        // Display the user's input on the web page
+        
+
+        var $submit = $.ajax({
+          type: 'POST',
+          url: chatterbotUrl,
+          data: JSON.stringify(inputData),
+          contentType: 'application/json'
+        });
+
+
+        $submit.done(function(statement) {
+
+            
+
+            // Clear the input field
+            $input.val('');
+
+            // Scroll to the bottom of the chat interface
+           // $chatlog[0].scrollTop = $chatlog[0].scrollHeight;
+
+           setTimeout(function() {
+          
+          $('#spinner3').show();
+
+          }, 1000);
+
+           setTimeout(function() {
+          
+          $('#spinner3').hide();
+          $('#mytext3').show();
+          createRow(inputData.text);
+          createRow(statement.text);
+
+          }, 3000);
+
+            
+        });
+
+        $submit.fail(function() {
+          // TODO: Handle errors
+        });
+      }
+
+      $sayButton.click(function() {
+        submitInput();
+      });
+
+      $input.keydown(function(event) {
+        // Submit the input when the enter button is pressed
+        if (event.keyCode == 13) {
+          submitInput();
+        }
+      });
+    </script>
+  </body>
+</html>

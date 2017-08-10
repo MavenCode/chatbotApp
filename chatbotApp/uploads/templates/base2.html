@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+  <head>
+    <title> ChatBot aka Greeto </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bouncing_dots.css' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+setTimeout(function() {
+    $('#spinner5').hide();
+}, 2000);
+
+ 
+
+setTimeout(function() {
+    $('#mytext5').show();
+
+}, 2000);
+</script>
+
+
+  </head>
+  <body>
+
+    {% include 'nav.html' %}
+
+    <div class="container">
+
+
+      <div class="jumbotron mt-1">
+        <h1 class="jumbotron-heading text-xs-center">ChatBot aka Greeto</h1>
+        <p class="lead text-xs-center">
+          This is a web app that allows you to talk to ChatBot.
+        </p>
+
+        <hr class="my-2">
+
+
+
+  <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner5" class="spinner">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+                      
+                <div id= "mytext5" class="p-2 col-lg-4" style="display:none;">
+                    {% block content %}
+                    {% endblock %}   
+                </div>
+
+        </div>
+
+    </div>
+       
+
+
+
+      </div>
+
+    </div>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/js.cookie.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    
+  </body>
+</html>
