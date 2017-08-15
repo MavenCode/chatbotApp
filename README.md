@@ -17,6 +17,7 @@ Set up:
 5. Run: Python manage.py runserver 0.0.0.0:8000
    Note: this can be changed via ALLOWED_HOSTS = ['*'] in the settings under uploads folder for the production environment
 6. Open the bot in the browser via 0.0.0.0:8000
+7. Once down, use 'deativate' command to exit the chatterbotenv
 
 
 
@@ -25,7 +26,7 @@ TODO:
 
 1. On the upload of documents:
    i.   Files can be in pdf format and needs to be converted to jpeg/jpg
-   ii.  Tensorflow IMR using convoluted neural networks should be able to identity the validity of the verify the file uploaded and chat back on wether it the actual document or not.
+   ii.  Tensorflow IMR using convoluted neural networks should be able to identity the validity the file uploaded and chat back on wether it the actual document or not.
 
 2. Payment systems to be incorporated.
 
