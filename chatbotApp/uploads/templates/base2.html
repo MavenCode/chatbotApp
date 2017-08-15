@@ -1,13 +1,21 @@
-{% load staticfiles %}
+{% load static %}
 <!doctype html>
 <html>
   <head>
-    <title> ChatBot aka Greeto </title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/bouncing_dots.css' %}"/>
+    <title> Greeto </title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+
 
 <script>
 setTimeout(function() {
@@ -70,9 +78,7 @@ setTimeout(function() {
 
     </div>
 
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/js.cookie.js' %}"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
+    
     
   </body>
 </html>

@@ -6,6 +6,7 @@ from uploads.core.models import Document
 from uploads.core.forms import DocumentForm
 
 
+
 def home(request):
     documents = Document.objects.all()
     return render(request, 'core/home.html', { 'documents': documents })

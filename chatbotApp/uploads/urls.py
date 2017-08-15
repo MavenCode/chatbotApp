@@ -9,11 +9,12 @@ from uploads.core import views
 
 
 urlpatterns = [
+    url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^uploads/form/$', views.model_form_upload, name='model_form_upload'),
+    url(r'^uploads/form/', views.model_form_upload, name='model_form_upload'),
     url(r'^api/chatterbot/', include(chatterbot_urls, namespace='chatterbot')),
 
-    url(r'^admin/', admin.site.urls),
+    
 ]
 
 if settings.DEBUG:
