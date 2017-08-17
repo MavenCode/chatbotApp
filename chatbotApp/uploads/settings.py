@@ -60,6 +60,7 @@ CHATTERBOT = {
          #'chatterbot.corpus.english.greetings',
          
          'chatterbot.corpus.english.ai',
+         'chatterbot.corpus.english.humor',
 
     ],
 
