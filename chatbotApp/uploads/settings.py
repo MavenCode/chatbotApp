@@ -46,15 +46,21 @@ INSTALLED_APPS = [
 
 CHATTERBOT = {
     'name': 'Tech Support Bot',
-    # 'logic_adapters': [
+    'logic_adapters': [
+         'chatterbot.logic.LowConfidenceAdapter',
+         'chatterbot.logic.BestMatch',
     #     'chatterbot.logic.MathematicalEvaluation',
     #     'chatterbot.logic.TimeLogicAdapter',
     #     'chatterbot.logic.BestMatch'
-    # ],
+    # 
+    ],
+   
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
-         'chatterbot.corpus.english.greetings',
-         "chatterbot.corpus.english.conversations"
+         #'chatterbot.corpus.english.greetings',
+         
+         'chatterbot.corpus.english.ai',
+
     ],
 
     'django_app_name': 'django_chatterbot'
