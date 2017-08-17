@@ -174,9 +174,16 @@ setTimeout(function() {
                           
                 <div id= "mytext3" style="display:none;" class="p-2 col-lg-4">
 
-                    <ul class="list-group js-chat-log">
+                    <ul class="list-group js-chat-log" id="listItems">
 
-                    </ul>  
+                    </ul> 
+                    <span class="input-group-btn">
+
+                                <button id= "btnClear" class="btn btn-primary"  onclick="removeAll()">
+                                  Clear
+                                </button>
+
+                    </span> 
                 </div>
 
         </div>
@@ -237,6 +244,14 @@ setTimeout(function() {
       var $input = $('.js-text');
       var $sayButton = $('.js-say');
 
+
+
+      function removeAll(){
+          document.getElementById("listItems").innerHTML = "";
+          $('#btnClear').hide();
+      }
+
+
       function createRow(text) {
          
       
@@ -246,6 +261,7 @@ setTimeout(function() {
 
         $row.text(text);
         $chatlog.append($row);
+        $('#btnClear').show();
       }
 
       function submitInput() {
@@ -306,7 +322,11 @@ setTimeout(function() {
         if (event.keyCode == 13) {
           submitInput();
         }
-      });
+      }
+
+
+
+      );
     </script>
   </body>
 </html>
