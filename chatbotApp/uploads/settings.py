@@ -47,8 +47,9 @@ INSTALLED_APPS = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
     'logic_adapters': [
-         'chatterbot.logic.LowConfidenceAdapter',
          'chatterbot.logic.BestMatch',
+         'chatterbot.logic.LowConfidenceAdapter',
+         
     #     'chatterbot.logic.MathematicalEvaluation',
     #     'chatterbot.logic.TimeLogicAdapter',
     #     'chatterbot.logic.BestMatch'

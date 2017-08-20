@@ -7,15 +7,38 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
-
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/w3.css' %}"/>
 
    
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  
 
+<style>
+.box {display:none;}
+.mySlides {display:none;}
+.mySlides_Ent {display:none;}
+</style>
 
+<script>
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+
+</script>
 
 <script>
 setTimeout(function() {
@@ -49,9 +72,35 @@ setTimeout(function() {
 
 setTimeout(function() {
     $('#mytext4').show();
+    $('#myform').show();
     $('#spinner4').hide();
 
+
 }, 8000);
+
+setTimeout(function() {
+    $('#mymenu').show();
+    ;
+
+}, 8500);
+
+setTimeout(function() {
+    $('#spinner5').show();
+}, 9000);
+
+// setTimeout(function() {
+//     $('#mytext5').show();
+//     $('#spinner5').hide();
+
+// }, 10000);
+
+
+// setTimeout(function() {
+//     $('#spinner5').show();
+   
+// }, 9000);
+
+
 
 // setTimeout(function() {
 //     $('#spinner3').show();
@@ -91,7 +140,7 @@ setTimeout(function() {
 
                <div   class="p-2 col-md-4">
                      <div class="alert alert-info" id="mytext" style="display:none;">
-                         <strong>Info!</strong> I am Adverto.ai your chatbot buddy to advertisement
+                          I am Adverto.ai your chatbot buddy to Ads.
                     </div>
 
               </div>        
@@ -117,10 +166,11 @@ setTimeout(function() {
 
                    <div   class="p-2 col-md-4">
                          <div class="alert alert-info" id="mytext1" style="display:none;">
-                              I am currently trained to take your inquiries on AI, Jokes, Quebec Mon Project. 
+                              I am currently trained to take your question on AI&#44; Jokes&#44; <a href="http://www.immigration-quebec.gouv.qc.ca/en/informations/mon-projet-quebec/faq.html" target="">Mon Projet Quebec</a> 
                         </div>
 
-                  </div>        
+                  </div>           
+                 
             
             </div>
 
@@ -190,12 +240,10 @@ setTimeout(function() {
 
     </div>
 
-
-
   <div class="row">
            <div class= "d-flex justify-content-start">
             
-                 <div   class="p-2 col-lg-3">
+                 <div   class="p-2 col-md-3">
                       <div  id= "spinner4" class="spinner" style="display:none;">
 
                               <div class="bounce1"></div>
@@ -204,16 +252,114 @@ setTimeout(function() {
                       
                       </div>
                   </div>
+
+                
+     
+                
+                <div   class="p-2 col-md-4">
+                         <div class="alert alert-info" id="mytext4" style="display:none;">
+                              All myBuddies agree that I am good in Ads.
+                                       <select id="mymenu" size="1" style="display:none;" >
+                                        <option value="nothing" selected="selected">
+                                        Select a category
+                                        </option>                
+                                        <option value="automobiles">Automobiles
+                                        </option>
+                                         <option value="entertainments">Entertainments
+                                        </option>  
+                                        <option value="sports">Sports
+                                        </option>                  
+                                                        
+                                     </select>                              
+                                                                                 
+                           
+                                               
+                        </div>
+
+                </div> 
+
+                                                                                        
+                    
+          
+        </div>
+
+    </div>
+
+
+
+    <div class="row ">
+               <div class= "d-flex justify-content-start" >
+             
+              
+                <div class="w3-content w3-section  automobiles box" style="max-width:500px" >
+
+                       <!-- Automobiles -->
+                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_01.jpg' %}" style="width:100%">
+                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_02.jpg' %}" style="width:100%">
+                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_03.jpg' %}" style="width:100%">
+                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_04.jpg' %}" style="width:100%">
+                     
+
+                </div>
+                  <script type="text/javascript" src="{% static 'js/automobiles.js' %}"></script>
+
+               </div>
+   </div>
+
+
+   <div class="row"  >
+          <div class= "d-flex justify-content-start" >
+
+
+
+             <div class="w3-content w3-section entertainments box" style="max-width:500px" > 
+
+
+                     <!-- Entertainments -->
+                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_01.jpg' %}" style="width:100%">
+                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_02.jpg' %}" style="width:100%">
+                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_03.jpg' %}" style="width:100%">
+                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_04.jpg' %}" style="width:100%">
+            
+                <script type="text/javascript" src="{% static 'js/entertainments.js' %}"></script>
+
+          
+             </div>
+
+            
+
+
+           </div>
+  </div>
+
+    
+       
+    
+
+
+  <!-- <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner5" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
                       
-                <div id= "mytext4" class="p-2 col-lg-4"  style="display:none;">
+                      </div>
+                  </div>
+                      
+                <div id= "mytext5" class="p-2 col-lg-4"  style="display:none;">
                     {% block content %}
                     {% endblock %}   
                 </div>
 
         </div>
 
-    </div>
+    </div> -->
        
+
 
 
 

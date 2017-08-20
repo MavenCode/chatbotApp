@@ -2,11 +2,27 @@
 
 <nav class="navbar navbar-dark bg-inverse navbar-full">
 
-  <a class="navbar-brand" href="{% url 'home' %}">
+       <ul class="nav navbar-nav float-xs-right">
+          <li class="nav-item">
+             <a class="nav-link" href="{% url 'model_form_upload' %}">Ad with us</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+           
+          </li>
+          
+        </ul>
 
-    <img src="{% static 'images/chatterbot.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Refresh">
+        <ul class="nav navbar-nav float-xs-left">
+        <li class="nav-item">
+           <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'images/chatterbot.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Refresh">
+          </a>
+        </li>
 
-  </a>
+        </ul>
+ 
 
   <!--<ul class="nav navbar-nav">
     <li class="nav-item">
@@ -17,10 +33,5 @@
     </li> 
   </ul>-->
 
-  <ul class="nav navbar-nav float-xs-right">
-    
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
-    </li>
-  </ul>
+  
 </nav>
