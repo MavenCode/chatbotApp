@@ -21,6 +21,22 @@
 .box {display:none;}
 .mySlides {display:none;}
 .mySlides_Ent {display:none;}
+.mySlides_Spo {display:none;}
+#mytext{display:none;}
+#mytext1{display:none;}
+#mytext2{display:none;}
+#mytext3{display:none;}
+#mytext4{display:none;}
+#mymenu{size:1;display:none; }
+
+.jumbotron {
+  background-color: dimgray;
+}
+
+.row_margin{
+  margin-top: 10px;
+  margin-bottom: 10px
+}
 </style>
 
 <script>
@@ -117,15 +133,12 @@ setTimeout(function() {
     <div class="container">
 
 
-      <div class="jumbotron mt-1">
-        <h1 class="jumbotron-heading text-xs-center">ChatBot aka Greeto</h1>
-        <p class="lead text-xs-center">
-          This is a web app that allows you to talk to ChatBot.
-        </p>
+      <div class="jumbotron mt-2">
+        
 
-        <hr class="my-2">
+        
 
-        <div class="row">
+        <div class="row row_margin">
         <div class= "d-flex justify-content-start">
           
              <div   class="p-2 col-md-3">
@@ -138,8 +151,8 @@ setTimeout(function() {
                 </div>
               </div>
 
-               <div   class="p-2 col-md-4">
-                     <div class="alert alert-info" id="mytext" style="display:none;">
+               <div   class="p-2 col-md-5">
+                     <div class="alert alert-info" id="mytext">
                           I am Adverto.ai your chatbot buddy to Ads.
                     </div>
 
@@ -150,7 +163,7 @@ setTimeout(function() {
 
       </div>
 
-      <div class = "row">
+      <div class = "row row_margin">
 
           <div class= "d-flex justify-content-start">
               
@@ -164,8 +177,8 @@ setTimeout(function() {
                     </div>
                   </div>
 
-                   <div   class="p-2 col-md-4">
-                         <div class="alert alert-info" id="mytext1" style="display:none;">
+                   <div   class="p-2 col-md-5">
+                         <div class="alert alert-info" id="mytext1">
                               I am currently trained to take your question on AI&#44; Jokes&#44; <a href="http://www.immigration-quebec.gouv.qc.ca/en/informations/mon-projet-quebec/faq.html" target="">Mon Projet Quebec</a> 
                         </div>
 
@@ -176,7 +189,7 @@ setTimeout(function() {
 
     </div>
 
-     <div class="row">
+     <div class="row row_margin">
            <div class= "d-flex justify-content-start">
             
                  <div   class="p-2 col-md-3">
@@ -192,7 +205,7 @@ setTimeout(function() {
                 
      
                 
-                <div id= "mytext2" style="display:none;" class="p-2 col-md-4">
+                <div id= "mytext2" style="display:none;" class="p-2 col-md-5">
 
                     <input type="text"  class="form-control js-text input-lg"
                      placeholder="Type something to begin..." />
@@ -209,10 +222,10 @@ setTimeout(function() {
     </div>
 
 
-     <div class="row">
+     <div class="row row_margin">
            <div class= "d-flex justify-content-start">
             
-                 <div   class="p-2 col-lg-3">
+                 <div   class="p-2 col-md-3">
                       <div  id= "spinner3" class="spinner" style="display:none;">
 
                               <div class="bounce1"></div>
@@ -222,7 +235,7 @@ setTimeout(function() {
                       </div>
                   </div>
                           
-                <div id= "mytext3" style="display:none;" class="p-2 col-lg-4">
+                <div id= "mytext3" style="display:none;" class="p-2 col-md-5">
 
                     <ul class="list-group js-chat-log" id="listItems">
 
@@ -240,7 +253,7 @@ setTimeout(function() {
 
     </div>
 
-  <div class="row">
+  <div class="row row_margin">
            <div class= "d-flex justify-content-start">
             
                  <div   class="p-2 col-md-3">
@@ -256,10 +269,10 @@ setTimeout(function() {
                 
      
                 
-                <div   class="p-2 col-md-4">
-                         <div class="alert alert-info" id="mytext4" style="display:none;">
+                <div   class="p-2 col-md-5">
+                         <div class="alert alert-info" id="mytext4">
                               All myBuddies agree that I am good in Ads.
-                                       <select id="mymenu" size="1" style="display:none;" >
+                                       <select id="mymenu">
                                         <option value="nothing" selected="selected">
                                         Select a category
                                         </option>                
@@ -287,41 +300,71 @@ setTimeout(function() {
 
 
 
-    <div class="row ">
+    <div class="row automobiles box ">
                <div class= "d-flex justify-content-start" >
-             
-              
-                <div class="w3-content w3-section  automobiles box" style="max-width:500px" >
+                     <div   class="p-2 col-md-3"></div>
+                    
+                          <div class=" p-2 col-md-5" >
 
-                       <!-- Automobiles -->
-                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_01.jpg' %}" style="width:100%">
-                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_02.jpg' %}" style="width:100%">
-                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_03.jpg' %}" style="width:100%">
-                        <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_04.jpg' %}" style="width:100%">
-                     
+                                 <!-- Automobiles -->
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_01.jpg' %}" style="width:100%">
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_02.jpg' %}" style="width:100%">
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_03.jpg' %}" style="width:100%">
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_04.jpg' %}" style="width:100%">
+                               
 
-                </div>
-                  <script type="text/javascript" src="{% static 'js/automobiles.js' %}"></script>
+                          </div>
+                        <script type="text/javascript" src="{% static 'js/automobiles.js' %}"></script>
 
                </div>
    </div>
 
 
-   <div class="row"  >
+   <div class="row entertainments box">
           <div class= "d-flex justify-content-start" >
 
+            <div   class="p-2 col-md-3"></div>
+              
+
+                 <div class=" p-2 col-md-5" > 
 
 
-             <div class="w3-content w3-section entertainments box" style="max-width:500px" > 
+                         <!-- Entertainments -->
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_01.jpg' %}" style="width:100%">
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_02.jpg' %}" style="width:100%">
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_03.jpg' %}" style="width:100%">
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_04.jpg' %}" style="width:100%">
+                
+                    <script type="text/javascript" src="{% static 'js/entertainments.js' %}"></script>
 
+              
+                 </div>
 
-                     <!-- Entertainments -->
-                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_01.jpg' %}" style="width:100%">
-                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_02.jpg' %}" style="width:100%">
-                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_03.jpg' %}" style="width:100%">
-                  <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_04.jpg' %}" style="width:100%">
             
-                <script type="text/javascript" src="{% static 'js/entertainments.js' %}"></script>
+
+
+           </div>
+  </div>
+
+
+    <div class="row sports box ">
+          <div class= "d-flex justify-content-start" >
+
+            <div   class="p-2 col-md-3"></div>
+              
+
+             <div class="p-2 col-md-5" > 
+
+
+                     <!-- Sports -->
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_01.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_02.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_03.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_04.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_05.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_06.jpeg' %}" style="width:100%">
+            
+                <script type="text/javascript" src="{% static 'js/sports.js' %}"></script>
 
           
              </div>
