@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'chatterbot.ext.django_chatterbot',
+    #'south',
     'uploads.core',
     
    
@@ -47,13 +48,18 @@ INSTALLED_APPS = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
     'logic_adapters': [
-         'chatterbot.logic.BestMatch',
-         'chatterbot.logic.LowConfidenceAdapter',
-         
-    #     'chatterbot.logic.MathematicalEvaluation',
-    #     'chatterbot.logic.TimeLogicAdapter',
-    #     'chatterbot.logic.BestMatch'
-    # 
+         {
+            "import_path": "chatterbot.logic.BestMatch",
+            "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
+            "response_selection_method": "chatterbot.response_selection.get_first_response"
+         },
+
+            {
+                'import_path': 'chatterbot.logic.LowConfidenceAdapter',
+                'threshold': 0.90,
+                'default_response': 'I am sorry, but I do not understand.'
+            },
+      
     ],
    
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
@@ -61,7 +67,7 @@ CHATTERBOT = {
          #'chatterbot.corpus.english.greetings',
          
          'chatterbot.corpus.english.ai',
-         'chatterbot.corpus.english.humor',
+         
 
     ],
 
@@ -93,6 +99,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+
             ],
         },
     },
