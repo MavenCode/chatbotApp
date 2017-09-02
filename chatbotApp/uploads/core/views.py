@@ -4,6 +4,7 @@ from django.core.files.storage import FileSystemStorage
 
 from uploads.core.models import ImageUploadModel
 from uploads.core.forms import ImageUploadForm
+from django.contrib import messages
 
 
 
@@ -34,12 +35,14 @@ def model_form_upload(request):
 
         if form.is_valid():
             form.save()
-            return redirect('model_form_upload')
+            messages.success(request, 'Uploaded successfully!')
+            #return redirect('model_form_upload')
     else:
         form = ImageUploadForm()
     return render(request, 'core/model_form_upload.html', {
         'form': form
-    })
+    }
+    )
 
 
     

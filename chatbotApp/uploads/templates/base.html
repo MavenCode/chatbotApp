@@ -47,7 +47,10 @@
 
 </style>
 
+
+
 <script>
+
 $(document).ready(function(){
     $("select").change(function(){
         $(this).find("option:selected").each(function(){
@@ -60,6 +63,23 @@ $(document).ready(function(){
             }
         });
     }).change();
+});
+
+
+$(document).ready(function () {
+  $('select').each(function () {
+    var select = $(this);
+    var selectedValue = select.find('option[selected]').val();
+
+    if (selectedValue) {
+      select.val(selectedValue);
+      $(".box").hide();
+    
+    } else {
+      select.prop('selectedIndex', 0);
+      $(".box").hide();
+    }
+  });
 });
 
 </script>
@@ -197,14 +217,14 @@ setTimeout(function() {
                 
      
                 
-                <div id= "mytext2" style="display:none;" class="p-2 col-sm-5">
+                <div id= "mytext2" style="display:none;" class=" field p-2 col-sm-5">
 
-                    <input type="text"  class="form-control js-text input-lg"
+                    <input type="text" class="form-control js-text input-lg"
                      placeholder="Ask me a question to begin..." />
                      
                           <span class="input-group-btn ">
 
-                                <button class="btn btn-outline-info btn-sm pull-right  js-say">Submit</button>
+                                <button  class="btn btn-outline-info btn-sm pull-right  js-say ">Submit</button>
 
                           </span>
                       
@@ -404,7 +424,7 @@ setTimeout(function() {
 
     </div>
     
-  
+   
 
     <script>     
       var chatterbotUrl = '{% url "chatterbot:chatterbot" %}';

@@ -20,9 +20,9 @@ class ImageUploadForm(forms.ModelForm):
        else:
            w, h = get_image_dimensions(picture)
            if w != 400:
-               raise forms.ValidationError("The image is %i pixel wide. It's supposed to be 400px wide" % w)
+               raise forms.ValidationError("The image is %i px wide. It's supposed to be 400 px wide" % w)
            if h != 300:
-               raise forms.ValidationError("The image is %i pixel high. It's supposed to be 300px long" % h)
+               raise forms.ValidationError("The image is %i px high. It's supposed to be 300 px high" % h)
        
            if len(picture.name.split('.')) == 1:
               raise forms.ValidationError("File type is not supported.")
