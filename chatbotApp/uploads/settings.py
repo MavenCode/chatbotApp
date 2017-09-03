@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'chatterbot.ext.django_chatterbot',
-    #'south',
+    
     'uploads.core',
+    'send_email',
+
     
    
 ]
@@ -56,7 +58,7 @@ CHATTERBOT = {
 
             {
                 'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-                'threshold': 0.90,
+                'threshold': 0.80,
                 'default_response': 'I am sorry, but I do not understand.'
             },
       
@@ -138,6 +140,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Contact Form specific
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'taiwo.adetiloye@gmail.com'  # this is my email address, use yours
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']   # set environ yourself
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = '1025'
+# EMAIL_USE_TLS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -151,6 +164,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+
+
 
 
 # Static files (CSS, JavaScript, Images)

@@ -13,7 +13,9 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^uploads/form/$', views.model_form_upload, name='model_form_upload'),
     url(r'^api/chatterbot/', include(chatterbot_urls, namespace='chatterbot')),
-   # url(r'^', include('send_email.urls')),
+    url(r'^', include('send_email.urls')),
+    #https://wsvincent.com/django-contact-form/
+    
 
     
 

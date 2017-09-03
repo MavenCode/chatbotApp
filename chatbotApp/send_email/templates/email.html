@@ -1,0 +1,19 @@
+{% extends 'base3.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<h6> Please, fill form to send your message</h6>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Send</button>
+    </div>
+</form>
+
+{% endblock %}
