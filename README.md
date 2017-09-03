@@ -26,7 +26,7 @@ TODO:
 
 1. On the upload of documents:
    i.   Files can be in pdf format and needs to be converted to jpeg/jpg
-   ii.  Tensorflow IMR using convoluted neural networks should be able to identity the validity the file uploaded and chat back on wether it the actual document or not.
+   ii.  Tensorflow IMR using convoluted neural networks should be able to identity the validity of the file uploaded and chat back on whether it is the actual document or not.
 
 2. Payment systems to be incorporated.
 
