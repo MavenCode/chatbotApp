@@ -49,19 +49,33 @@ INSTALLED_APPS = [
 
 CHATTERBOT = {
     'name': 'Tech Support Bot',
+    
     'logic_adapters': [
+
+         
+
          {
             "import_path": "chatterbot.logic.BestMatch",
             "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
             "response_selection_method": "chatterbot.response_selection.get_first_response"
          },
+         # {
+         #        'import_path': 'chatterbot.logic.TimeLogicAdapter',
+                
+         # },
+         {
+                'import_path': 'chatterbot.logic.MathematicalEvaluation',
+                
+         },
 
-            {
+
+          {
                 'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-                'threshold': 0.80,
+                'threshold': 0.90,
                 'default_response': 'I am sorry, but I do not understand.'
-            },
-      
+        },        
+
+         
     ],
    
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
@@ -122,6 +136,18 @@ DATABASES = {
 }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'django_db',
+#         'USER': 'root',
+#         'PASSWORD': os.environ.get('MySQLPASSWORD','')
+#     }
+# }
+
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -147,7 +173,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'taiwo.adetiloye@gmail.com'  # this is my email address, use yours
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']   # set environ yourself
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = 'localhost'
 # EMAIL_PORT = '1025'
 # EMAIL_USE_TLS = True

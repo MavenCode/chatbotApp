@@ -98,7 +98,7 @@ setTimeout(function() {
                   </div>
                 <div   class="p-2 col-sm-5">      
                     <div class="alert alert-info" id="mytext1" style="display:none;">
-                             Contact us, now, to personalize adverto.ai
+                             Contact us, now, to kick start your AI site.
                    </div>
                 </div>
 
@@ -123,7 +123,13 @@ setTimeout(function() {
                 
                       
                 <div id= "mytext2" class="p-2 col-lg-4" style="display:none;">
-               
+                    {% if messages %}
+                          <ul class="messages">
+                              {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                              {% endfor %}
+                          </ul>
+                    {% endif %}
                     {% block content %}
                     {% endblock %}   
                     
