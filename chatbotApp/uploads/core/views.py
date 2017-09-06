@@ -13,7 +13,9 @@ def home(request):
     return render(request, 'core/home.html')
 
 
-
+def sample_questions(request):
+    #documents = Document.objects.all()
+    return render(request, 'core/sample_questions.html')
 
 
 def model_form_upload(request):

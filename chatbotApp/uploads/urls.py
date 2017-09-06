@@ -12,9 +12,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
     url(r'^uploads/form/$', views.model_form_upload, name='model_form_upload'),
+    url(r'^sample/questions/$', views.sample_questions, name='samples'),
     url(r'^api/chatterbot/', include(chatterbot_urls, namespace='chatterbot')),
-    url(r'^', include('send_email.urls')),
-    #https://wsvincent.com/django-contact-form/
+    url(r'^', include('send_email.urls')), #credit: https://wsvincent.com/django-contact-form/
     
 
     
