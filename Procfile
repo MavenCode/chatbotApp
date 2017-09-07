@@ -1,3 +1,1 @@
-web:python manage.py runserver
-web: gunicorn uploads.wsgi --log-file -
-heroku ps:scale web=1
+web: gunicorn gunicorn --env DJANGO_SETTINGS_MODULE=uploads.settings uploads.wsgi
