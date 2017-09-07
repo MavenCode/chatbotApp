@@ -1,11 +1,522 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Simple File Upload</title>
+    <title> Adverto AI</title>
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/w3.css' %}"/>
+
+   
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    
+
+<style>
+.box {display:none;}
+.mySlides {display:none;}
+.mySlides_Ent {display:none;}
+.mySlides_Spo {display:none;}
+#mytext{display:none;}
+#mytext1{display:none;}
+#mytext2{display:none;}
+#mytext3{display:none;}
+#mytext4{display:none;}
+#mymenu{size:1;display:none; }
+
+.jumbotron {
+  background-color: #F6F6F6;
+}
+
+.note{
+  font-size: 11px;
+  font-weight:bold;
+}
+
+.row_margin{ 
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+
+.alert {max-height:60px}
+
+.pull-right {
+    float: right !important;
+    margin-top: 2px }
+ 
+
+</style>
+
+
+
+<script>
+// for ad page selection
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+
+// reset ad page on return or back button
+$(document).ready(function () {
+  $('select').each(function () {
+    var select = $(this);
+    var selectedValue = select.find('option[selected]').val();
+
+    if (selectedValue) {
+      select.val(selectedValue);
+      $(".box").hide();
+    
+    } else {
+      select.prop('selectedIndex', 0);
+      $(".box").hide();
+    }
+  });
+});
+
+
+
+</script>
+
+<script>
+setTimeout(function() {
+    $('#spinner').hide();
+}, 2000);
+
+ 
+
+setTimeout(function() {
+    $('#mytext').show();
+    $('#spinner1').show();
+
+}, 2000);
+
+
+setTimeout(function() {
+    $('#mytext1').show();
+    $('#spinner1').hide();
+    $('#spinner2').show();
+}, 4000);
+
+setTimeout(function() {
+    $('#mytext2').show();
+    $('#spinner2').hide();
+
+}, 6000);
+
+setTimeout(function() {
+    $('#spinner4').show();
+}, 7000);
+
+setTimeout(function() {
+    $('#mytext4').show();
+    $('#myform').show();
+    $('#spinner4').hide();
+
+
+}, 8000);
+
+setTimeout(function() {
+    $('#mymenu').show();
+    ;
+
+}, 8500);
+
+setTimeout(function() {
+    $('#spinner5').show();
+}, 9000);
+
+
+
+
+</script>
+
   </head>
   <body>
-    {% block content %}
-    {% endblock %}
+
+    {% include 'nav.html' %}
+
+    <div class="container">
+
+
+      <div class="jumbotron mt-2">
+        
+
+        
+
+        <div class="row row_margin">
+        <div class= "d-flex justify-content-start">
+          
+             <div   class="p-2 col-sm-3">
+                <div  id= "spinner" class="spinner ">
+
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                
+                </div>
+              </div>
+
+               <div   class="p-2 col-sm-5">
+                     <div class="alert alert-info" id="mytext">
+                          I am Adverto AI &#44; your chatbot buddy to Ads.
+                         
+                    </div>
+
+              </div>        
+        
+        </div>
+
+
+      </div>
+
+      <div class = "row row_margin">
+
+          <div class= "d-flex justify-content-start">
+              
+                 <div   class="p-2 col-sm-3">
+                    <div  id= "spinner1" class="spinner"  style="display:none;">
+
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                    
+                    </div>
+                  </div>
+
+                   <div   class="p-2 col-sm-5">
+                         <div class="alert alert-info" id="mytext1">
+                              I've been trained to take your<strong><a href="{% url 'samples' %}" data-toggle="tooltip" data-placement="top" title="Hint: What is Adverto? Click for few more"> AI question(s)</a> </strong>
+
+                               <p class="note help-block">Note: I'm evolving, so I may not have all the answers.</p>                         
+                          </div>
+                            
+
+                  </div>           
+                 
+            
+            </div>
+
+    </div>
+
+     <div class="row row_margin">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-sm-3">
+                      <div  id= "spinner2" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+
+                
+     
+                
+                <div id= "mytext2" style="display:none;" class=" field p-2 col-sm-5">
+
+                    <input type="text" class="form-control js-text input-lg"
+                     placeholder="Ask me a question to begin..." />
+                     
+                          <span class="input-group-btn ">
+
+                                <button  class="btn btn-outline-info btn-sm pull-right  js-say ">Submit</button>
+
+                          </span>
+                      
+                </div>                                       
+                    
+          
+        </div>
+
+    </div>
+
+
+     <div class="row row_margin">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-md-3">
+                      <div  id= "spinner3" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+                          
+                <div id= "mytext3" style="display:none;" class="p-2 col-md-5">
+                        {% csrf_token %}
+                    <ul class="list-group js-chat-log" id="listItems">
+
+                    </ul> 
+                    
+                      <span class="input-group-btn">
+
+                        <button id="btnClear" class="btn btn-outline-info btn-sm  pull-right"   onclick="removeAll()">Clear all</button>
+
+                      </span> 
+                    
+                </div>
+
+        </div>
+
+    </div>
+
+  <div class="row row_margin">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-md-3">
+                      <div  id= "spinner4" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+
+                
+     
+                
+                <div   class="p-2 col-md-5">
+                         <div class="alert alert-info" id="mytext4">
+                              All my buddies agree that I am good in Ads.
+                                       <select id="mymenu">
+                                        <option value="nothing" selected="selected">
+                                        Select a category
+                                        </option>                
+                                        <option value="automobiles">Automobiles
+                                        </option>
+                                         <option value="entertainments">Entertainments
+                                        </option>  
+                                        <option value="sports">Sports
+                                        </option>                  
+                                                        
+                                     </select>                              
+                                                                                 
+                           
+                                               
+                        </div>
+
+                </div> 
+
+                                                                                        
+                    
+          
+        </div>
+
+    </div>
+
+
+
+    <div class="row automobiles box ">
+               <div class= "d-flex justify-content-start" >
+                     <div   class="p-2 col-md-3"></div>
+                    
+                          <div class=" p-2 col-md-5" >
+
+                                 <!-- Automobiles -->
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_01.jpg' %}" style="width:100%">
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_02.jpg' %}" style="width:100%">
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_03.jpg' %}" style="width:100%">
+                                  <img class="mySlides w3-animate-top" src="{% static 'images/ads_imgs/automobiles/img_rr_04.jpg' %}" style="width:100%">
+                               
+
+                          </div>
+                        <script type="text/javascript" src="{% static 'js/automobiles.js' %}"></script>
+
+               </div>
+   </div>
+
+
+   <div class="row entertainments box">
+          <div class= "d-flex justify-content-start" >
+
+            <div   class="p-2 col-md-3"></div>
+              
+
+                 <div class=" p-2 col-md-5" > 
+
+
+                         <!-- Entertainments -->
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_01.jpg' %}" style="width:100%">
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_02.jpg' %}" style="width:100%">
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_03.jpg' %}" style="width:100%">
+                      <img class="mySlides_Ent w3-animate-fading" src="{% static 'images/ads_imgs/entertainments/ent_04.jpg' %}" style="width:100%">
+                
+                    <script type="text/javascript" src="{% static 'js/entertainments.js' %}"></script>
+
+              
+                 </div>
+
+            
+
+
+           </div>
+  </div>
+
+
+    <div class="row sports box ">
+          <div class= "d-flex justify-content-start" >
+
+            <div   class="p-2 col-md-3"></div>
+              
+
+             <div class="p-2 col-md-5" > 
+
+
+                     <!-- Sports -->
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_01.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_02.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_03.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_04.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_05.jpeg' %}" style="width:100%">
+                  <img class="mySlides_Spo w3-animate-zoom" src="{% static 'images/ads_imgs/sports/spo_06.jpeg' %}" style="width:100%">
+            
+                <script type="text/javascript" src="{% static 'js/sports.js' %}"></script>
+
+          
+             </div>
+
+            
+
+
+           </div>
+  </div>
+
+    
+      
+
+
+
+
+      </div>
+
+    </div>
+    
+   
+
+    <script>     
+      var chatterbotUrl = '{% url "chatterbot:chatterbot" %}';
+      var csrftoken = Cookies.get('csrftoken');
+
+      function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+      }
+
+      $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+        }
+      });
+
+      var $chatlog = $('.js-chat-log');
+      var $input = $('.js-text');
+      var $sayButton = $('.js-say');
+
+
+
+      function removeAll(){
+          document.getElementById("listItems").innerHTML = "";
+          $('#btnClear').hide();
+      }
+
+
+      function createRow(text) {
+         
+      
+
+
+        var $row = $('<li class="list-group-item"><div class="alert alert-info"><br> </div></li>');
+
+        $row.text(text);
+        $chatlog.append($row);
+        $('#btnClear').show();
+      }
+
+      function submitInput() {
+        var inputData = {
+          'text': $input.val()
+        }
+
+        // Display the user's input on the web page
+        
+
+        var $submit = $.ajax({
+          type: 'POST',
+          url: chatterbotUrl,
+          data: JSON.stringify(inputData),
+          contentType: 'application/json'
+        });
+
+
+        $submit.done(function(statement) {
+
+            
+
+            // Clear the input field
+            $input.val('');
+
+            // Scroll to the bottom of the chat interface
+           // $chatlog[0].scrollTop = $chatlog[0].scrollHeight;
+
+           setTimeout(function() {
+          
+          $('#spinner3').show();
+
+          }, 1000);
+
+           setTimeout(function() {
+          
+          $('#spinner3').hide();
+          $('#mytext3').show();
+          createRow(inputData.text);
+          createRow(statement.text);
+
+          }, 3000);
+
+            
+        });
+
+        $submit.fail(function() {
+          // TODO: Handle errors
+        });
+      }
+
+      $sayButton.click(function() {
+        submitInput();
+      });
+
+      $input.keydown(function(event) {
+        // Submit the input when the enter button is pressed
+        if (event.keyCode == 13) {
+          submitInput();
+        }
+      }
+
+
+
+      );
+    </script>
   </body>
 </html>

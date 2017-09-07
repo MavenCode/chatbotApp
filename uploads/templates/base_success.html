@@ -1,0 +1,74 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title> Adverto AI </title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
+
+
+   
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+
+
+
+
+
+  </head>
+  <body>
+
+    {% include 'nav.html' %}
+
+    <div class="container">
+
+
+      <div class="jumbotron mt-2">
+
+
+  
+       
+
+  <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner2" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+
+                
+                      
+                <div id= "mytext2" class="p-2 col-lg-4">
+               
+                    {% block content %}
+                    {% endblock %}   
+                    
+                </div>
+
+        </div>
+
+    </div>
+
+   
+
+
+
+      </div>
+
+    </div>
+
+    
+    
+  </body>
+</html>
