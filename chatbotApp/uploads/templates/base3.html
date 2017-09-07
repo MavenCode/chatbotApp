@@ -1,0 +1,153 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+  <head>
+    <title> Adverto AI </title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
+
+
+   
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+
+
+<script>
+setTimeout(function() {
+    $('#spinner1').hide();
+}, 2000);
+
+ 
+
+setTimeout(function() {
+    $('#mytext1').show();
+}, 2000);
+
+
+setTimeout(function() {
+    $('#spinner1').hide();
+    $('#spinner2').show();
+}, 4000);
+
+setTimeout(function() {
+    $('#mytext2').show();
+    $('#spinner2').hide();
+    $('#spinner3').show();
+
+}, 6000);
+
+setTimeout(function() {
+    $('#mytext3').show();
+    $('#spinner3').hide();
+  
+}, 7000);
+</script>
+
+<style>
+.jumbotron {
+  background-color: #F6F6F6;
+}
+
+.row_margin{
+  margin-top: 10px;
+
+}
+
+.note{
+  font-size: 11px;
+  font-weight:bold;
+}
+
+.alert {max-height:55px}
+
+.a_return {
+    color: #67BCDB;
+    margin-top:20px;
+}
+
+</style>
+
+
+  </head>
+  <body>
+
+    {% include 'nav3.html' %}
+
+    <div class="container">
+
+
+      <div class="jumbotron mt-2">
+
+
+   <div class="row row_margin">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner1" class="spinner">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+                <div   class="p-2 col-sm-5">      
+                    <div class="alert alert-info" id="mytext1" style="display:none;">
+                             Contact us, now, to kick start your AI website.
+                   </div>
+                </div>
+
+        </div>
+
+    </div>
+       
+
+  <div class="row">
+           <div class= "d-flex justify-content-start">
+            
+                 <div   class="p-2 col-lg-3">
+                      <div  id= "spinner2" class="spinner" style="display:none;">
+
+                              <div class="bounce1"></div>
+                              <div class="bounce2"></div>
+                              <div class="bounce3"></div>
+                      
+                      </div>
+                  </div>
+
+                
+                      
+                <div id= "mytext2" class="p-2 col-lg-4" style="display:none;">
+                    {% if messages %}
+                          <ul class="messages">
+                              {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                              {% endfor %}
+                          </ul>
+                    {% endif %}
+                    {% block content %}
+                    {% endblock %}   
+                    
+                </div>
+
+        </div>
+
+    </div>
+
+   
+
+
+
+      </div>
+
+    </div>
+
+    
+    
+  </body>
+</html>
