@@ -1,1 +1,1 @@
-web: gunicorn gunicorn --env DJANGO_SETTINGS_MODULE=uploads.settings uploads.wsgi
+web: gunicorn --env DJANGO_SETTINGS_MODULE=uploads.settings uploads.wsgi
