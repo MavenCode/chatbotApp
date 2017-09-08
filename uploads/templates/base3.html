@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
-
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/w3.css' %}"/>
 
    
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
@@ -87,7 +87,7 @@ setTimeout(function() {
    <div class="row row_margin">
            <div class= "d-flex justify-content-start">
             
-                 <div   class="p-2 col-lg-3">
+                 <div   class="p-2 col-sm-3">
                       <div  id= "spinner1" class="spinner">
 
                               <div class="bounce1"></div>
@@ -110,7 +110,7 @@ setTimeout(function() {
   <div class="row">
            <div class= "d-flex justify-content-start">
             
-                 <div   class="p-2 col-lg-3">
+                 <div   class="p-2 col-sm-3">
                       <div  id= "spinner2" class="spinner" style="display:none;">
 
                               <div class="bounce1"></div>
@@ -122,7 +122,7 @@ setTimeout(function() {
 
                 
                       
-                <div id= "mytext2" class="p-2 col-lg-4" style="display:none;">
+                <div id= "mytext2" class="p-2 col-sm-4" style="display:none;">
                     {% if messages %}
                           <ul class="messages">
                               {% for message in messages %}
