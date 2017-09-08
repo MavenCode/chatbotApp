@@ -58,16 +58,25 @@ setTimeout(function() {
 
 }
 
+.fill{
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .note{
   font-size: 11px;
   font-weight:bold;
 }
 
-.alert {max-height:55px}
+.alert {max-height:55px; font-size: 12px}
 
 .a_return {
     color: #67BCDB;
     margin-top:20px;
+}
+
+#mytext2{
+font-size: 12px;
 }
 
 </style>
@@ -123,6 +132,10 @@ setTimeout(function() {
                 
                       
                 <div id= "mytext2" class="p-2 col-sm-4" style="display:none;">
+
+                    <p><span class="fill"> Fill the form to send your message</span>
+                    </p>
+
                     {% if messages %}
                           <ul class="messages">
                               {% for message in messages %}

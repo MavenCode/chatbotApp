@@ -58,12 +58,21 @@ setTimeout(function() {
 
 }
 
+.btn{
+  font-size: 12px;
+}
+
+#mytext2{
+font-size: 12px;
+}
+
 .note{
-  font-size: 11px;
+  font-size: 10px;
   font-weight:bold;
 }
 
-.alert {max-height:55px}
+
+.alert {max-height:55px; font-size:12px;}
 
 .a_return {
     color: #67BCDB;
@@ -124,7 +133,7 @@ setTimeout(function() {
 
                 
                       
-                <div id= "mytext2" class="p-2 col-lg-4" style="display:none;">
+                <div id= "mytext2" class="p-2 col-sm-4" style="display:none;">
                 {% if messages %}
                           <ul class="messages">
                               {% for message in messages %}
