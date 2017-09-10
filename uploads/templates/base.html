@@ -9,11 +9,11 @@
     <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/w3.css' %}"/>
 
-   
-    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
  
     
 
@@ -40,7 +40,7 @@
   text-align:center;
   font-size: 12px;
   font-style: Helvetica;
-  
+
 }
 
 .btn{
@@ -75,10 +75,14 @@
 
 </style>
 
+ 
+                     
 
 
 <script>
 // for ad page selection
+
+
 $(document).ready(function(){
     $("select").change(function(){
         $(this).find("option:selected").each(function(){
@@ -222,12 +226,20 @@ setTimeout(function() {
 
                    <div   class="p-2 col-sm-5">
                          <div class="alert alert-info" id="mytext1">
-                              I've been trained to take your<strong><a href="{% url 'samples' %}" data-toggle="tooltip" data-placement="top" title="Hint: What is Adverto? Click for few more"> AI question(s)</a> </strong>
+                              I've been trained to take your<strong><a href="{% url 'samples' %}"  title="Hint: What is Adverto? Click for few more"> AI question(s)</a> </strong>
 
-                               <p class="note help-block">Note: I'm evolving, so I may not have all the answers.</p>                         
+                              
+
+                               <p class="note help-block">Note: I'm evolving, so I may not have all the answers.</p>  
+
+                              
+                   
                           </div>
-                            
 
+                             
+
+                            
+                       
                   </div>           
                  
             
@@ -431,7 +443,10 @@ setTimeout(function() {
 
     </div>
     
-   
+    <script type="text/javascript" src="{% static 'js/notify.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/notify.min.js' %}"></script>
+
+    <!-- credit: https://notifyjs.com/ -->
 
     <script>     
       var chatterbotUrl = '{% url "chatterbot:chatterbot" %}';
@@ -451,6 +466,8 @@ setTimeout(function() {
       });
 
       var $chatlog = $('.js-chat-log');
+
+
       var $input = $('.js-text');
       var $sayButton = $('.js-say');
 
@@ -475,8 +492,22 @@ setTimeout(function() {
       }
 
       function submitInput() {
-        var inputData = {
-          'text': $input.val()
+
+
+
+        var inputData; 
+
+         if (!$input.val()){
+            $.notify("Warning: Empty", "warn"); 
+           }
+
+        else{
+            
+            inputData = {
+
+               'text': $input.val()
+            }
+            
         }
 
         // Display the user's input on the web page
