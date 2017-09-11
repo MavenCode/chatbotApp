@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,7 +83,7 @@ CHATTERBOT = {
 
          {
             "import_path": "chatterbot.logic.BestMatch",
-            "statement_comparison_function": "chatterbot.comparisons.SynsetDistance",
+            "statement_comparison_function": "chatterbot.comparisons.SynsetDistance,
             "response_selection_method": "chatterbot.response_selection.get_first_response"
          },
          # {
@@ -104,6 +104,8 @@ CHATTERBOT = {
 
          
     ],
+
+    'filters': ["chatterbot.filters.RepetitiveResponseFilter"]
    
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
