@@ -76,7 +76,7 @@ CHATTERBOT = {
 
          {
             "import_path": "chatterbot.logic.BestMatch",
-            "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
+            "statement_comparison_function": "chatterbot.comparisons.synset_distance",
             "response_selection_method": "chatterbot.response_selection.get_first_response"
          },
          # {
