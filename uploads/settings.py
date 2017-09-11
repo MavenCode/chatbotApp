@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', False) )
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
@@ -69,13 +69,6 @@ INSTALLED_APPS = [
 
 CHATTERBOT = {
     'name': 'Tech Support Bot',
-
-
-    'preprocessors': [
-       'chatterbot.preprocessors.clean_whitespace',
-       'chatterbot.preprocessors.unescape_html',
-       'chatterbot.preprocessors.convert_to_ascii',
-    ],
     
     'logic_adapters': [
 
@@ -104,15 +97,13 @@ CHATTERBOT = {
 
          
     ],
-
-    'filters': ["chatterbot.filters.RepetitiveResponseFilter"],
    
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
          #'chatterbot.corpus.english.greetings',
          
-         #'chatterbot.corpus.english.ai',
-         'chatbotenv/lib/python2.7/site-packages/chatterbot_corpus/data/english/ai.yml',
+         'chatterbot.corpus.english.ai',
+         
          
 
     ],
@@ -201,7 +192,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'postmaster@sandbox2a9ad5fbbfa5415989c7e0a75b1ad6f9.mailgun.org'  # this is my email address, use yours
-EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD', '')   # set environ yourself
+EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD', '5fca66ccfaa8228fe00d5cb54b784e0d')   # set environ yourself
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
