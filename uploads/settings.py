@@ -70,33 +70,33 @@ INSTALLED_APPS = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
     
-    # 'logic_adapters': [
+    'logic_adapters': [
 
          
 
-    #      {
-    #         "import_path": "chatterbot.logic.BestMatch",
-    #         "statement_comparison_function": "chatterbot.comparisons.synset_distance",
-    #         "response_selection_method": "chatterbot.response_selection.get_first_response"
-    #      },
-    #      # {
-    #      #        'import_path': 'chatterbot.logic.TimeLogicAdapter',
+         {
+            "import_path": "chatterbot.logic.BestMatch",
+            "statement_comparison_function": "chatterbot.comparisons.synset_distance",
+            "response_selection_method": "chatterbot.response_selection.get_first_response"
+         },
+         # {
+         #        'import_path': 'chatterbot.logic.TimeLogicAdapter',
                 
-    #      # },
-    #      {
-    #             'import_path': 'chatterbot.logic.MathematicalEvaluation',
+         # },
+         {
+                'import_path': 'chatterbot.logic.MathematicalEvaluation',
                 
-    #      },
+         },
 
 
-    #       {
-    #             'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-    #             'threshold': 0.90,
-    #             'default_response': 'I am sorry, but I do not understand.'
-    #     },        
+          {
+                'import_path': 'chatterbot.logic.LowConfidenceAdapter',
+                'threshold': 0.90,
+                'default_response': 'I am sorry, but I do not understand.'
+        },        
 
          
-    # ],
+    ],
    
     'filters': ["chatterbot.filters.RepetitiveResponseFilter"],
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
