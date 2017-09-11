@@ -98,6 +98,7 @@ CHATTERBOT = {
          
     ],
    
+    'filters': 'chatterbot.filters.RepetitiveResponseFilter',
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
          #'chatterbot.corpus.english.greetings',
