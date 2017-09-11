@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = False
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
@@ -70,7 +70,6 @@ INSTALLED_APPS = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
 
-
     'preprocessors': [
        'chatterbot.preprocessors.clean_whitespace',
        'chatterbot.preprocessors.unescape_html',
@@ -105,20 +104,22 @@ CHATTERBOT = {
          
     ],
 
-    'filters': ["chatterbot.filters.RepetitiveResponseFilter"],
    
+    #'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
-         #'chatterbot.corpus.english.greetings',
-         
-         #'chatterbot.corpus.english.ai',
          'chatbotenv/lib/python2.7/site-packages/chatterbot_corpus/data/english/ai.yml',
+        
+        
+         
          
 
     ],
 
     'django_app_name': 'django_chatterbot'
 }
+
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
