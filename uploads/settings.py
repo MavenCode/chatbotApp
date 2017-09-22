@@ -29,7 +29,7 @@ DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = ['*']
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 # Application definition
 
 SECURE_HSTS_SECONDS = 3600
@@ -70,30 +70,30 @@ INSTALLED_APPS = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
     
-    'logic_adapters': [
+    # 'logic_adapters': [
 
          
 
-         {
-            "import_path": "chatterbot.logic.BestMatch",
-            "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
-            "response_selection_method": "chatterbot.response_selection.get_first_response"
-         },
+    #      {
+    #         "import_path": "chatterbot.logic.BestMatch",
+    #         "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
+    #         "response_selection_method": "chatterbot.response_selection.get_first_response"
+    #      },
         
-         {
-                'import_path': 'chatterbot.logic.MathematicalEvaluation',
+    #      {
+    #             'import_path': 'chatterbot.logic.MathematicalEvaluation',
                 
-         },
+    #      },
 
 
-          {
-                'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-                'threshold': 0.90,
-                'default_response': 'I am sorry, but I do not understand.'
-        },        
+    #       {
+    #             'import_path': 'chatterbot.logic.LowConfidenceAdapter',
+    #             'threshold': 0.90,
+    #             'default_response': 'I am sorry, but I do not understand.'
+    #     },        
 
          
-    ],
+    # ],
    
     'filters': ["chatterbot.filters.RepetitiveResponseFilter"],
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
