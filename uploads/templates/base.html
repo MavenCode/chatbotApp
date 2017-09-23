@@ -13,12 +13,11 @@
 
     <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/tether.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-      <!--  <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/tether.js' %}"></script> -->
-    <!-- <script type="text/javascript" src="{% static 'js/drop.js' %}"></script>
-     <script type="text/javascript" src="{% static 'js/tooltip.js' %}"></script> -->
+ 
+     
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
     
@@ -99,28 +98,6 @@
 
 <script>
 // for ad page selection
-
-        $(document).ready(function() {
-        // Tooltip only Text
-        $('.masterTooltip').hover(function(){
-                // Hover over code
-                var title = $(this).attr('title');
-                $(this).data('tipText', title).removeAttr('title');
-                $('<p class="tooltip"></p>')
-                .text(title)
-                .appendTo('body')
-                .fadeIn('slow');
-        }, function() {
-                // Hover out code
-                $(this).attr('title', $(this).data('tipText'));
-                $('.tooltip').remove();
-        }).mousemove(function(e) {
-                var mousex = e.pageX + 20; //Get X coordinates
-                var mousey = e.pageY + 10; //Get Y coordinates
-                $('.tooltip')
-                .css({ top: mousey, left: mousex })
-        });
-        });
                                        
 $(document).ready(function(){
     $("select").change(function(){
@@ -267,7 +244,7 @@ setTimeout(function() {
 
                    <div   class="p-2 col-sm-5">
                          <div class="alert alert-info" id="mytext1">
-                              I've been trained to take your<strong><a href="{% url 'samples' %}"  title="Hint: What is Adverto? Click for few more" class="masterTooltip" > AI question(s)</a> </strong>
+                              I've been trained to take your<strong><a href="{% url 'samples' %}"  title="Hint: What is Adverto? Click for few more" > AI question(s)</a> </strong>
 
 
 
