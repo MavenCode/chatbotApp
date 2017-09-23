@@ -31,8 +31,8 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
+ALLOWED_HOSTS =['.herokuapp.com','adverto.ai', 'www.adverto.ai']
+#ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
 SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
