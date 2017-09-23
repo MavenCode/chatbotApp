@@ -22,44 +22,7 @@
     
 
 <style>
-a.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
 
-a.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
-}
-
-
-a.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: black transparent transparent transparent;
-}
-
-a.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
 
 
 .box {display:none;}
@@ -272,13 +235,8 @@ setTimeout(function() {
                    <div   class="p-2 col-sm-5">
                          <div class="alert alert-info" id="mytext1">
                               I've been trained to take your
-                              <strong><a href="{% url 'samples' %}" class="tooltip"> 
+                              <strong><a href="{% url 'samples' %}" title="   What is Adverto? Click for few more""> 
                                 AI question(s)
-                                
-                                    
-                                  <span class="tooltiptext"> 
-                                      What is Adverto? Click for few more"
-                                 </span>
                                
                               </a> 
 
