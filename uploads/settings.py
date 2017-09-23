@@ -30,7 +30,7 @@ ADMINS = (
     ('Taiwo Adetiloye', 'taiwo.adetiloye@gmail.com'),
 )
 
-#MANAGERS = ADMINS
+MANAGERS = ADMINS
 ALLOWED_HOSTS =['.herokuapp.com',u'adverto.ai', u'www.adverto.ai', 'https://boiling-spire-13231.herokuapp.com/api/chatterbot/']
 #ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
 SITE_DOMAIN = ALLOWED_HOSTS[0]
@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
 
     'chatterbot.ext.django_chatterbot',
     'uploads.core',
