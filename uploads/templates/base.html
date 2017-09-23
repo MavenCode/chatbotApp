@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/w3.css' %}"/>
-    <link rel="stylesheet" type="text/css"  href="{% static 'css/tooltip-theme-arrows.css' %}"/>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}">
 
     <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
@@ -24,15 +23,29 @@
 
 <style>
 .tooltip {
-  display:none;
-  position:absolute;
-  border:1px solid #333;
-  background-color:#161616;
-  border-radius:5px;
-  padding:10px;
-  color:#fff;
-  font-size:12px Arial;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
 }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 
 .box {display:none;}
 .mySlides {display:none;}
