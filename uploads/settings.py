@@ -26,16 +26,16 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 
-# ADMINS = (
-#     ('Taiwo Adetiloye', 'taiwo.adetiloye@gmail.com'),
-# )
+ADMINS = (
+    ('Taiwo Adetiloye', 'taiwo.adetiloye@gmail.com'),
+)
 
 #MANAGERS = ADMINS
 ALLOWED_HOSTS =['.herokuapp.com',u'adverto.ai', u'www.adverto.ai', 'https://boiling-spire-13231.herokuapp.com/api/chatterbot/']
 #ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
 SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
 
 SECURE_SSL_REDIRECT = False
 # Application definition
