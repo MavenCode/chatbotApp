@@ -22,13 +22,13 @@
     
 
 <style>
-.tooltip {
+a.tooltip {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
 }
 
-.tooltip .tooltiptext {
+a.tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -46,7 +46,7 @@
 }
 
 
-.tooltip .tooltiptext::after {
+a.tooltip .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -57,7 +57,7 @@
     border-color: black transparent transparent transparent;
 }
 
-.tooltip:hover .tooltiptext {
+a.tooltip:hover .tooltiptext {
     visibility: visible;
 }
 
