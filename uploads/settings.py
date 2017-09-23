@@ -31,7 +31,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-ALLOWED_HOSTS =['.herokuapp.com',u'adverto.ai', u'www.adverto.ai']
+ALLOWED_HOSTS =['.herokuapp.com',u'adverto.ai', u'www.adverto.ai', 'https://boiling-spire-13231.herokuapp.com/api/chatterbot/']
 #ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
 SITE_DOMAIN = ALLOWED_HOSTS[0]
 SESSION_COOKIE_HTTPONLY = True
@@ -235,7 +235,7 @@ STATICFILES_DIRS = (
                 # Extra places for collectstatic to find static files.
 )
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
