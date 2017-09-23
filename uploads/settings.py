@@ -29,7 +29,7 @@ TEMPLATE_DEBUG = False
 #DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 
 ADMINS = (
-    ('Taiwo Adetiloye', 'taiwo.adetiloye@gmail.com'),
+    ('Admin', 'taiwo.adetiloye@gmail.com'),
 )
 
 MANAGERS = ADMINS
