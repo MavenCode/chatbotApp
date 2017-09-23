@@ -24,7 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
+DEBUG = False
+#DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 
 ADMINS = (
     ('Taiwo Adetiloye', 'taiwo.adetiloye@gmail.com'),
