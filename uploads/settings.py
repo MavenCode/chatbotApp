@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,36 +22,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt')
+SECRET_KEY = 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', False )
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-SECURE_SSL_REDIRECT = False
+#SECURE_SSL_REDIRECT = False
 # Application definition
 
-SECURE_HSTS_SECONDS = 3600
 
-
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-SECURE_CONTENT_TYPE_NOSNIFF = True
-
-SECURE_BROWSER_XSS_FILTER = True
-
-SECURE_SSL_REDIRECT = True
-
-SESSION_COOKIE_SECURE =True
-
-CSRF_COOKIE_SECURE = True
-
-X_FRAME_OPTIONS = 'DENY'
-
-SECURE_HSTS_PRELOAD = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -60,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'chatterbot.ext.django_chatterbot',
+    
     'uploads.core',
     'send_email',
 
@@ -72,18 +56,26 @@ CHATTERBOT = {
     
     'logic_adapters': [
 
-         
+         # {
+         #        'import_path': 'chatterbot_weather.WeatherLogicAdapter',
+                
+         # },
 
          {
             "import_path": "chatterbot.logic.BestMatch",
             "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
             "response_selection_method": "chatterbot.response_selection.get_first_response"
          },
-        
+         # {
+         #        'import_path': 'chatterbot.logic.TimeLogicAdapter',
+                
+         # },
          {
                 'import_path': 'chatterbot.logic.MathematicalEvaluation',
                 
          },
+
+          
 
 
           {
@@ -95,12 +87,11 @@ CHATTERBOT = {
          
     ],
    
-    'filters': ["chatterbot.filters.RepetitiveResponseFilter"],
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
          #'chatterbot.corpus.english.greetings',
          
-        'chatbotenv/lib/python2.7/site-packages/chatterbot_corpus/data/english/ai.yml',
+         'chatterbot.corpus.english.ai',
          
          
 
@@ -111,7 +102,6 @@ CHATTERBOT = {
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -186,13 +176,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Contact Form specific
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'postmaster@sandbox2a9ad5fbbfa5415989c7e0a75b1ad6f9.mailgun.org'  # this is my email address, use yours
-EMAIL_HOST_PASSWORD =  os.environ.get('EMAIL_HOST_PASSWORD', '5fca66ccfaa8228fe00d5cb54b784e0d')   # set environ yourself
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'taiwo.adetiloye@gmail.com'  # this is my email address, use yours
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']   # set environ yourself
+# DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = 'localhost'
 # EMAIL_PORT = '1025'
@@ -219,22 +209,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = '/staticfiles/'
 
 STATICFILES_DIRS = (
-                os.path.join(BASE_DIR,'static'), 
+                os.path.join(BASE_DIR,'staticfiles'), 
                 # Extra places for collectstatic to find static files.
 )
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
