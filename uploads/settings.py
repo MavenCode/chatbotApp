@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j
 DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Taiwo Adetiloye', 'taiwo.adetiloye@gmail.com'),
 )
 
 MANAGERS = ADMINS
