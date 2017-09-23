@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j
 #DEBUG = False
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', False )
 
-ALLOWED_HOSTS = ['adverto.ai', 'www.adverto.ai', 'boiling-spire-13231.herokuapp.com']
+ALLOWED_HOSTS = [ ]
 
 SECURE_SSL_REDIRECT = False
 # Application definition
