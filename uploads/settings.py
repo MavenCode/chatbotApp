@@ -24,10 +24,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = bool( os.environ.get('DJANGO_DEBUG', False )
+DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'adverto.ai', 'www.adverto.ai']
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+
+MANAGERS = ADMINS
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com').split(':')
+SITE_DOMAIN = ALLOWED_HOSTS[0]
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
 
 SECURE_SSL_REDIRECT = False
 # Application definition
