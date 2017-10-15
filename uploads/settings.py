@@ -24,12 +24,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = False
+TEMPLATE_DEBUG = False
+#DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
 
-ALLOWED_HOSTS = ['*']
+ADMINS = (
+    ('Admin', 'taiwo.adetiloye@gmail.com'),
+)
 
-SECURE_SSL_REDIRECT = True
+MANAGERS = ADMINS
+ALLOWED_HOSTS =['.herokuapp.com',u'adverto.ai', u'www.adverto.ai', 'https://boiling-spire-13231.herokuapp.com/api/chatterbot/']
+#ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
+SITE_DOMAIN = ALLOWED_HOSTS[0]
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
+
+SECURE_SSL_REDIRECT = False
 # Application definition
 
 SECURE_HSTS_SECONDS = 3600
@@ -227,8 +237,8 @@ STATICFILES_DIRS = (
                 # Extra places for collectstatic to find static files.
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+#WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

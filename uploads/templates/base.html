@@ -3,7 +3,10 @@
 <html>
   <head>
     <title> Adverto AI</title>
-   
+    <!-- Google G Suite account -->
+    <meta name="google-site-verification" content="7ferj3gNVlYP-2Cqx18yjooHhL4MmiO7JVYu73Jr04c" />
+    <!-- ends: Google G Suite account -->
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/custom.css' %}"/>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/bouncing_dots.css' %}"/>
@@ -12,13 +15,19 @@
 
     <script type="text/javascript" src="{% static 'js/js.cookie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/tether.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+ 
+     
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.js' %}" ></script>
     
     
 
 <style>
+
+
+
 .box {display:none;}
 .mySlides {display:none;}
 .mySlides_Ent {display:none;}
@@ -82,8 +91,7 @@
 
 <script>
 // for ad page selection
-
-
+                                       
 $(document).ready(function(){
     $("select").change(function(){
         $(this).find("option:selected").each(function(){
@@ -229,13 +237,22 @@ setTimeout(function() {
 
                    <div   class="p-2 col-sm-5">
                          <div class="alert alert-info" id="mytext1">
-                              I've been trained to take your<strong><a href="{% url 'samples' %}"  title="Hint: What is Adverto? Click for few more"> AI question(s)</a> </strong>
+                              I've been trained to take your
+                              <strong><a href="{% url 'samples' %}" title="   What is Adverto? Click for few more""> 
+                                AI question(s)
+                               
+                              </a> 
+
+                              
+
+                            </strong>
+                              
 
 
 
                                <p class="note help-block">Note: I'm evolving, so I may not have all the answers.</p>  
 
-                              
+                                     
                    
                           </div>
 

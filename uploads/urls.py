@@ -16,11 +16,7 @@ urlpatterns = [
     url(r'^api/chatterbot/', include(chatterbot_urls, namespace='chatterbot')),
     url(r'^', include('send_email.urls')), #credit: https://wsvincent.com/django-contact-form/
     
-
-    
-
-    
-]
+] 					
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,1 @@
+cp chatbotenv/lib/python2.7/site-packages/chatterbot_corpus/data/english/ai.yml /app/.heroku/python/lib/python2.7/site-packages/chatterbot_corpus/data/english/ai.yml 
