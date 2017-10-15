@@ -24,22 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e#-^aknk(5k)ej6rh#h$i(%h(m9)-j*lwrc_1dxnk=a@-mixlt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
-#DEBUG = True if os.environ.get('DJANGO_DEBUG', None) == '1' else False
+#DEBUG = False
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ADMINS = (
-    ('Admin', 'taiwo.adetiloye@gmail.com'),
-)
+ALLOWED_HOSTS = ['*']
 
-MANAGERS = ADMINS
-ALLOWED_HOSTS =['.herokuapp.com',u'adverto.ai', u'www.adverto.ai', 'https://boiling-spire-13231.herokuapp.com/api/chatterbot/']
-#ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.herokuapp.com','.adverto.ai').split(':')
-SITE_DOMAIN = ALLOWED_HOSTS[0]
-SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_HTTPONLY = False
-
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 # Application definition
 
 SECURE_HSTS_SECONDS = 3600
@@ -80,30 +70,30 @@ INSTALLED_APPS = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
     
-    # 'logic_adapters': [
+    'logic_adapters': [
 
          
 
-    #      {
-    #         "import_path": "chatterbot.logic.BestMatch",
-    #         "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
-    #         "response_selection_method": "chatterbot.response_selection.get_first_response"
-    #      },
+         {
+            "import_path": "chatterbot.logic.BestMatch",
+            "statement_comparison_function": "chatterbot.comparisons.levenshtein_distance",
+            "response_selection_method": "chatterbot.response_selection.get_first_response"
+         },
         
-    #      {
-    #             'import_path': 'chatterbot.logic.MathematicalEvaluation',
+         {
+                'import_path': 'chatterbot.logic.MathematicalEvaluation',
                 
-    #      },
+         },
 
 
-    #       {
-    #             'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-    #             'threshold': 0.90,
-    #             'default_response': 'I am sorry, but I do not understand.'
-    #     },        
+          {
+                'import_path': 'chatterbot.logic.LowConfidenceAdapter',
+                'threshold': 0.90,
+                'default_response': 'I am sorry, but I do not understand.'
+        },        
 
          
-    # ],
+    ],
    
     'filters': ["chatterbot.filters.RepetitiveResponseFilter"],
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
@@ -237,8 +227,8 @@ STATICFILES_DIRS = (
                 # Extra places for collectstatic to find static files.
 )
 
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-#WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
